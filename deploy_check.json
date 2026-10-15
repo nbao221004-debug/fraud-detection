@@ -1,0 +1,44 @@
+{
+  "model_file_mb": 0.3,
+  "single_row_latency_ms_mean": 6.2,
+  "single_row_latency_ms_p95": 8.4,
+  "batch_10000_rows_seconds": 0.01,
+  "examples": {
+    "suspicious TRANSFER (balance emptied)": {
+      "input": {
+        "type": "TRANSFER",
+        "amount": 181.0,
+        "oldbalanceOrg": 181.0,
+        "newbalanceOrig": 0.0,
+        "oldbalanceDest": 0.0,
+        "newbalanceDest": 0.0
+      },
+      "probability": 0.9977926015853882,
+      "alert": true
+    },
+    "normal PAYMENT": {
+      "input": {
+        "type": "PAYMENT",
+        "amount": 9839.64,
+        "oldbalanceOrg": 170136.0,
+        "newbalanceOrig": 160296.36,
+        "oldbalanceDest": 0.0,
+        "newbalanceDest": 0.0
+      },
+      "probability": 1.0311656524208956e-06,
+      "alert": false
+    },
+    "normal CASH_OUT": {
+      "input": {
+        "type": "CASH_OUT",
+        "amount": 229133.94,
+        "oldbalanceOrg": 15325.0,
+        "newbalanceOrig": 0.0,
+        "oldbalanceDest": 5083.0,
+        "newbalanceDest": 51513.44
+      },
+      "probability": 7.22417316865176e-05,
+      "alert": false
+    }
+  }
+}

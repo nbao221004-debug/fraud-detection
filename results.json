@@ -1,0 +1,337 @@
+{
+  "seed": 42,
+  "split": {
+    "n_train": 5090096,
+    "n_test": 1272524,
+    "fraud_train": 6570,
+    "fraud_test": 1643,
+    "fraud_rate_train": 0.0012907418642005967,
+    "fraud_rate_test": 0.0012911347840983745
+  },
+  "neg_pos_ratio_train": 773.7482496194825,
+  "cv_baseline": [
+    {
+      "model": "Dummy (always 0)",
+      "accuracy_mean": 0.9987092581357991,
+      "accuracy_std": 5.071578268456356e-10,
+      "precision_mean": 0.0,
+      "precision_std": 0.0,
+      "recall_mean": 0.0,
+      "recall_std": 0.0,
+      "f1_mean": 0.0,
+      "f1_std": 0.0,
+      "pr_auc_mean": 0.001290741864200796,
+      "pr_auc_std": 5.07157862407459e-10,
+      "roc_auc_mean": 0.5,
+      "roc_auc_std": 0.0,
+      "seconds": 13.4
+    },
+    {
+      "model": "Decision Tree",
+      "accuracy_mean": 0.999461503287583,
+      "accuracy_std": 0.0005579544502601514,
+      "precision_mean": 0.7620052789679086,
+      "precision_std": 0.18449787380285454,
+      "recall_mean": 0.996042617960426,
+      "recall_std": 0.0017619234250822156,
+      "f1_mean": 0.8498854581310195,
+      "f1_std": 0.12933812238640663,
+      "pr_auc_mean": 0.9943055329708941,
+      "pr_auc_std": 0.0024101110867027226,
+      "roc_auc_mean": 0.9983700046238972,
+      "roc_auc_std": 0.0009115558850531593,
+      "seconds": 158.0
+    },
+    {
+      "model": "Logistic Regression",
+      "accuracy_mean": 0.9639973393134923,
+      "accuracy_std": 0.0010075154481835986,
+      "precision_mean": 0.03437904702232721,
+      "precision_std": 0.0008755920864233879,
+      "recall_mean": 0.9920852359208523,
+      "recall_std": 0.003066886100397243,
+      "f1_mean": 0.06645359587417263,
+      "f1_std": 0.0016317149633535632,
+      "pr_auc_mean": 0.733838694872327,
+      "pr_auc_std": 0.007943629824197152,
+      "roc_auc_mean": 0.9965926785182407,
+      "roc_auc_std": 0.0007426312106760546,
+      "seconds": 82.3
+    },
+    {
+      "model": "Random Forest",
+      "accuracy_mean": 0.9999935168211849,
+      "accuracy_std": 2.115939752980512e-06,
+      "precision_mean": 0.9996946557768329,
+      "precision_std": 0.00037396949772485133,
+      "recall_mean": 0.9952815829528158,
+      "recall_std": 0.0017619234250822384,
+      "f1_mean": 0.9974822826505638,
+      "f1_std": 0.0008235566926191023,
+      "pr_auc_mean": 0.9967951147541196,
+      "pr_auc_std": 0.0015534394900715946,
+      "roc_auc_mean": 0.9989801542848638,
+      "roc_auc_std": 0.0006169438085071571,
+      "seconds": 1213.1
+    },
+    {
+      "model": "XGBoost",
+      "accuracy_mean": 0.9998907682689581,
+      "accuracy_std": 2.44622245241898e-05,
+      "precision_mean": 0.9257769104643472,
+      "precision_std": 0.01713317910881887,
+      "recall_mean": 0.9955859969558599,
+      "recall_std": 0.0014757016308725517,
+      "f1_mean": 0.9593202493931896,
+      "f1_std": 0.00869575859996588,
+      "pr_auc_mean": 0.9969082234708496,
+      "pr_auc_std": 0.0015866781490228908,
+      "roc_auc_mean": 0.9995341013476547,
+      "roc_auc_std": 0.00021854184152132546,
+      "seconds": 89.1
+    },
+    {
+      "model": "Logistic Regression + SMOTE",
+      "accuracy_mean": 0.9964242325163554,
+      "accuracy_std": 0.0002991102439088652,
+      "precision_mean": 0.2466788630676297,
+      "precision_std": 0.018748366574156006,
+      "recall_mean": 0.854033485540335,
+      "recall_std": 0.010969468947779145,
+      "f1_mean": 0.3825024644959175,
+      "f1_std": 0.023133827221733495,
+      "pr_auc_mean": 0.7470147776592679,
+      "pr_auc_std": 0.014996293701702459,
+      "roc_auc_mean": 0.9943672109451056,
+      "roc_auc_std": 0.000995644350615844,
+      "seconds": 42.4
+    }
+  ],
+  "tuning": {
+    "model": "XGBoost",
+    "grid": {
+      "clf__n_estimators": [
+        100.0,
+        300.0
+      ],
+      "clf__max_depth": [
+        3.0,
+        5.0
+      ],
+      "clf__learning_rate": [
+        0.05,
+        0.1
+      ],
+      "clf__scale_pos_weight": [
+        10.0,
+        773.7482496194825
+      ]
+    },
+    "best_params": {
+      "clf__learning_rate": 0.05,
+      "clf__max_depth": 3.0,
+      "clf__n_estimators": 300.0,
+      "clf__scale_pos_weight": 10.0
+    },
+    "best_cv_pr_auc": 0.9974273270067832,
+    "n_candidates": 16
+  },
+  "thresholds": {
+    "f1_optimal": 0.8913092613220215,
+    "recall_90": 0.9976366758346558,
+    "oof_pr_auc": 0.9977156493155824
+  },
+  "test": {
+    "pr_auc": 0.9976965138843399,
+    "roc_auc": 0.9996875062083719,
+    "at_default_0.5": {
+      "threshold": 0.5,
+      "accuracy": 0.9999724956071555,
+      "precision": 0.982593037214886,
+      "recall": 0.9963481436396835,
+      "f1": 0.989422786340284,
+      "tn": 1270852,
+      "fp": 29,
+      "fn": 6,
+      "tp": 1637
+    },
+    "at_f1_threshold": {
+      "threshold": 0.8913092613220215,
+      "accuracy": 0.9999748531265422,
+      "precision": 0.9843656043295249,
+      "recall": 0.9963481436396835,
+      "f1": 0.9903206291591047,
+      "tn": 1270855,
+      "fp": 26,
+      "fn": 6,
+      "tp": 1637
+    },
+    "at_recall90_threshold": {
+      "threshold": 0.9976366758346558,
+      "accuracy": 0.9997587471827644,
+      "precision": 1.0,
+      "recall": 0.8131466828971394,
+      "f1": 0.8969452836522323,
+      "tn": 1270881,
+      "fp": 0,
+      "fn": 307,
+      "tp": 1336
+    }
+  },
+  "test_classification_report": {
+    "normal": {
+      "precision": 0.9999952787913077,
+      "recall": 0.9999795417509586,
+      "f1-score": 0.9999874102092187,
+      "support": 1270881.0
+    },
+    "fraud": {
+      "precision": 0.9843656043295249,
+      "recall": 0.9963481436396835,
+      "f1-score": 0.9903206291591047,
+      "support": 1643.0
+    },
+    "accuracy": 0.9999748531265422,
+    "macro avg": {
+      "precision": 0.9921804415604163,
+      "recall": 0.998163842695321,
+      "f1-score": 0.9951540196841617,
+      "support": 1272524.0
+    },
+    "weighted avg": {
+      "precision": 0.9999750987749461,
+      "recall": 0.9999748531265422,
+      "f1-score": 0.9999749290919545,
+      "support": 1272524.0
+    }
+  },
+  "test_dummy_accuracy": 0.9987088652159016,
+  "feature_importance": {
+    "origEmptied": 0.7235289216041565,
+    "newbalanceOrig": 0.1662718951702118,
+    "errorBalanceOrig": 0.06169627979397774,
+    "oldbalanceDest": 0.018480218946933746,
+    "amount": 0.009679465554654598,
+    "errorBalanceDest": 0.007828764617443085,
+    "type_PAYMENT": 0.005472508259117603,
+    "destEmpty": 0.0018085158662870526,
+    "oldbalanceOrg": 0.001528184860944748,
+    "type_TRANSFER": 0.0011695363791659474,
+    "type_CASH_OUT": 0.0008962624706327915,
+    "type_DEBIT": 0.0007666621240787208
+  },
+  "missed_fraud": [
+    {
+      "type": "CASH_OUT",
+      "amount": 277970.88,
+      "oldbalanceOrg": 0.0,
+      "newbalanceOrig": 0.0,
+      "oldbalanceDest": 0.0,
+      "newbalanceDest": 277970.88,
+      "isFraud": 1,
+      "proba": 0.03999999910593033
+    },
+    {
+      "type": "CASH_OUT",
+      "amount": 0.0,
+      "oldbalanceOrg": 0.0,
+      "newbalanceOrig": 0.0,
+      "oldbalanceDest": 267522.87,
+      "newbalanceDest": 267522.87,
+      "isFraud": 1,
+      "proba": 0.3199999928474426
+    },
+    {
+      "type": "CASH_OUT",
+      "amount": 23292.3,
+      "oldbalanceOrg": 0.0,
+      "newbalanceOrig": 0.0,
+      "oldbalanceDest": 392364.62,
+      "newbalanceDest": 415656.92,
+      "isFraud": 1,
+      "proba": 0.0
+    },
+    {
+      "type": "TRANSFER",
+      "amount": 123194.95,
+      "oldbalanceOrg": 79466.45,
+      "newbalanceOrig": 0.0,
+      "oldbalanceDest": 535933.16,
+      "newbalanceDest": 263908.84,
+      "isFraud": 1,
+      "proba": 0.0
+    },
+    {
+      "type": "CASH_OUT",
+      "amount": 0.0,
+      "oldbalanceOrg": 0.0,
+      "newbalanceOrig": 0.0,
+      "oldbalanceDest": 107777.02,
+      "newbalanceDest": 107777.02,
+      "isFraud": 1,
+      "proba": 0.3199999928474426
+    },
+    {
+      "type": "CASH_OUT",
+      "amount": 181728.11,
+      "oldbalanceOrg": 0.0,
+      "newbalanceOrig": 0.0,
+      "oldbalanceDest": 11397.0,
+      "newbalanceDest": 184477.77,
+      "isFraud": 1,
+      "proba": 0.0
+    }
+  ],
+  "false_positives_sample": [
+    {
+      "type": "CASH_OUT",
+      "amount": 55653.45,
+      "oldbalanceOrg": 55648.0,
+      "newbalanceOrig": 0.0,
+      "oldbalanceDest": 0.0,
+      "newbalanceDest": 55653.45,
+      "isFraud": 0,
+      "proba": 0.9900000095367432
+    },
+    {
+      "type": "CASH_OUT",
+      "amount": 469.06,
+      "oldbalanceOrg": 457.0,
+      "newbalanceOrig": 0.0,
+      "oldbalanceDest": 0.0,
+      "newbalanceDest": 469.06,
+      "isFraud": 0,
+      "proba": 0.9700000286102295
+    },
+    {
+      "type": "CASH_OUT",
+      "amount": 169836.44,
+      "oldbalanceOrg": 169803.0,
+      "newbalanceOrig": 0.0,
+      "oldbalanceDest": 1434502.08,
+      "newbalanceDest": 1604338.52,
+      "isFraud": 0,
+      "proba": 1.0
+    },
+    {
+      "type": "CASH_OUT",
+      "amount": 58564.36,
+      "oldbalanceOrg": 58530.0,
+      "newbalanceOrig": 0.0,
+      "oldbalanceDest": 0.0,
+      "newbalanceDest": 58564.36,
+      "isFraud": 0,
+      "proba": 0.9900000095367432
+    },
+    {
+      "type": "CASH_OUT",
+      "amount": 316067.17,
+      "oldbalanceOrg": 316046.0,
+      "newbalanceOrig": 0.0,
+      "oldbalanceDest": 728600.21,
+      "newbalanceDest": 1044667.38,
+      "isFraud": 0,
+      "proba": 1.0
+    }
+  ]
+}
